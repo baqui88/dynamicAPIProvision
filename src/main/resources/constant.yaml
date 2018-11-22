@@ -1,0 +1,9 @@
+CONSTANT:
+  base_uri: "/fresher/service/tests"
+  item_uri: "/fresher/service/tests/{test_id}"
+  dateFormat: "yyyy-MM-dd"
+  appName: "Premium Calculation Factor List"
+  mediaType: "application/json.vn+hal; application.json"
+  itemLinkName: "Test Document Instance"
+  collectionLinkName: "Test Document Instance"
+

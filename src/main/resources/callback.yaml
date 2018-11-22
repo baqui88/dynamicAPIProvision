@@ -1,0 +1,31 @@
+fetchAll:
+  class: csc.response.resolver.CollectionResponseResolver
+  function: fetchCollection
+  args:
+    - java.lang.String: >
+        {
+          "summary":
+          {
+            "test-create-date": "${@create-date}",
+            "text": "${@text}",
+            "doc-type": "${@resource-name}",
+            "create-user": "${@create-user}"
+          },
+          "name": "${CONSTANT.appName}",
+          "href": "${@item_href}",
+          "title": "${CONSTANT.collectionLinkName}"
+        }
+  return: JSONArray
+
+href_base:
+  class: csc.response.StaticInfoResolver
+  function: getBaseHref
+  args: []
+  return: String
+
+news:
+  class: csc.response.StaticInfoResolver
+  function: getController
+  args:
+    - java.lang.String : news
+  return: Object

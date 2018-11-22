@@ -1,0 +1,36 @@
+spring:
+  application:
+    name : "Dynamic API Provision"
+
+  profiles:
+    active : development
+
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database : testdb
+
+  freemarker:
+    template-loader-path: classpath:/templates
+    suffix: .ftl
+
+cloudant:
+  username : d220cf27-8d69-4411-8c70-fea981eacd6b-bluemix
+  password : bab5218cc40fd02c4f8eca15d19ba5582918ef7f4a9fb657de6fabe4ad1e4382
+  url : https://d220cf27-8d69-4411-8c70-fea981eacd6b-bluemix:bab5218cc40fd02c4f8eca15d19ba5582918ef7f4a9fb657de6fabe4ad1e4382@d220cf27-8d69-4411-8c70-fea981eacd6b-bluemix.cloudant.com
+  db : testdb
+
+# Server configuration
+server:
+  port : 8080
+  servlet :
+    session:
+      timeout : 30m
+
+
+
+# logging
+logging:
+  level:
+    csc: DEBUG

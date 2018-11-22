@@ -1,0 +1,56 @@
+{
+  "tests" : {
+    "_item" : {
+      "test-id" : "${@id}",
+      "test-create-date" : "${@create-date}",
+      "text" : "${@text}",
+      "doc-type" : "${@resource-name}",
+      "create-user" : "${@create-user}",
+      "_links" : {
+        "self" : {
+          "name" : "${CONSTANT.appName}",
+          "href" : "${@item_href}",
+          "title" : "${CONSTANT.itemLinkName}"
+        },
+        "_options" : {
+          "links" : [ {
+            "schema" : {
+              "properties" : { },
+              "required" : [ ]
+            },
+            "method" : "GET",
+            "rel" : "fetch",
+            "mediaType" : "${CONSTANT.mediaType}",
+            "href" : "${::href_base}",
+            "title" : "${CONSTANT.collectionLinkName}"
+          } ]
+        }
+      }
+    },
+    "_collection" : {
+      "Number of documents" : "${@@ size}",
+      "_links" : {
+        "item" : "${::fetchAll}",
+        "sub-link" : "${ ::news }"
+      },
+      "_option" : {
+        "links" : [ {
+          "schema" : {
+            "properties" : { },
+            "required" : [ ]
+          },
+          "method" : "GET",
+          "rel" : "fetch",
+          "mediaType" : "${CONSTANT.mediaType}",
+          "href" : "${::href_base}",
+          "title" : "${CONSTANT.collectionLinkName}"
+        } ]
+      }
+    }
+  },
+  "news" : {
+    "name" : "New endpoint",
+    "uri" : "/fresher/service/new-controller",
+    "title" : "New EndPoint Here"
+  }
+}

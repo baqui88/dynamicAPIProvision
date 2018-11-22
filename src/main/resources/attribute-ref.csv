@@ -1,0 +1,7 @@
+_ref,attribute,type,format
+id,_id,String,NA
+create-date,createdDateTime,Date,dd/MM/yyyy
+text,text,String,NA
+resource-name,resourceName,String,NA
+create-user,userProfile,String,NA
+item_href,href,String,NA
