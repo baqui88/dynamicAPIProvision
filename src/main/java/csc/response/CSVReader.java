@@ -41,7 +41,7 @@ public class CSVReader {
         int key_index = headerMap.get(key_column);
         for (CSVRecord record : parser)
         {
-            recordMap.put(record.get(key_index), record);
+            recordMap.put(record.get(key_index).trim(), record);
         }
         parser.close();
         return recordMap;

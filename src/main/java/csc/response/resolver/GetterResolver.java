@@ -30,7 +30,7 @@ public class GetterResolver {
         if (row == null)
             attr_name = attr_ref;
         else
-            attr_name = row.get("attribute");
+            attr_name = row.get("attribute").trim();
 
         // get method name
         if (ge.isGetter())

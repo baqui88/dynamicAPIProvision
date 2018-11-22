@@ -2,7 +2,7 @@
 tests:
   # Item representation config
   _item:
-    * : *
+    "*" : "*"
     _links:
       self:
         name: ${CONSTANT.appName}

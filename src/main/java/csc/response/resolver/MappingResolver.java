@@ -26,8 +26,9 @@ public class MappingResolver {
         List<CSVRecord> list = loader.getMapping();
         for(CSVRecord record : list)
         {
-            String display_name = record.get(0);
-            String attr = record.get(1);
+            String display_name = record.get(0).trim();
+            String attr = record.get(1).trim();
+
             Object value = GetterResolver.runMethod("get"+attr, o);
 
             if (value instanceof Date){
@@ -38,6 +39,9 @@ public class MappingResolver {
                     format = default_date_format;
                 }
                 value = GetterResolver.convertDateToString((Date) value, format);
+            }
+            if (value == null){
+                value = JSONObject.NULL;
             }
             jo.put(display_name, value);
         }

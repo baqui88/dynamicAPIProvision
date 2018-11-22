@@ -18,6 +18,7 @@ public class GeneralResponseResolver {
     protected CallbackResolver callbackResolver;
     protected PlaceholderResolver placeholderResolver;
     protected GetterResolver getterResolver;
+    protected MappingResolver mappingResolver;
     protected MainLoader loader;
 
     protected Object token;
@@ -34,6 +35,7 @@ public class GeneralResponseResolver {
         placeholderResolver = factory.getBean(PlaceholderResolver.class);
         getterResolver = factory.getBean(GetterResolver.class);
         loader = factory.getBean(MainLoader.class);
+        mappingResolver = factory.getBean(MappingResolver.class);
 
         readJSONToken();
     }
@@ -44,7 +46,7 @@ public class GeneralResponseResolver {
         this.contextObject = object;
     }
 
-    private Object resolveExpression(String expression) {
+    protected Object resolveExpression(String expression) {
         Object obj;
         expression = expression.trim();
         if (ExpressionChecker.isCallbackExpression(expression)){
@@ -113,7 +115,7 @@ public class GeneralResponseResolver {
         return r;
     }
 
-    private JSONObject reconstruct(JSONObject jo, boolean resolve) throws JSONException {
+    protected JSONObject reconstruct(JSONObject jo, boolean resolve) throws JSONException {
         JSONObject ret = new JSONObject();
 
         @SuppressWarnings("unchecked")
@@ -141,7 +143,7 @@ public class GeneralResponseResolver {
         return ret;
     }
 
-    private void putValueToJsonObject(JSONObject jo, String key, Object value, boolean resolve) throws JSONException {
+    protected void putValueToJsonObject(JSONObject jo, String key, Object value, boolean resolve) throws JSONException {
         if (value == null || value == JSONObject.NULL){
             jo.put(key, JSONObject.NULL);
         }
@@ -164,7 +166,7 @@ public class GeneralResponseResolver {
             throw new RuntimeException("not prepared for converting instance of class " + value.getClass());
     }
 
-    private  JSONArray reconstruct(JSONArray jsonArray, boolean resolve) throws JSONException
+    protected  JSONArray reconstruct(JSONArray jsonArray, boolean resolve) throws JSONException
     {
         JSONArray ret = new JSONArray();
         for (int i = 0; i < jsonArray.length(); i++) {
@@ -188,7 +190,7 @@ public class GeneralResponseResolver {
         return ret;
     }
 
-    private void putValueToArrayNode(JSONArray jsonArray, Object value, Object item, boolean resolve) throws JSONException {
+    protected void putValueToArrayNode(JSONArray jsonArray, Object value, Object item, boolean resolve) throws JSONException {
         if (value == null || value == JSONObject.NULL){
             jsonArray.put(null);
         }
