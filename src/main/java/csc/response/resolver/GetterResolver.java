@@ -49,7 +49,7 @@ public class GetterResolver {
         return value;
     }
 
-    private Object runMethod(String methodName, Object o)
+    public static Object runMethod(String methodName, Object o)
     {
         if (methodName == null)
             return null;
@@ -76,7 +76,7 @@ public class GetterResolver {
         return null;
     }
 
-    public String convertDateToString(Date date, String format){
+    public static String convertDateToString(Date date, String format){
         DateFormat df = new SimpleDateFormat(format);
         return df.format(date);
     }

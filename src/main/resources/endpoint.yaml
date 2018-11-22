@@ -2,11 +2,7 @@
 tests:
   # Item representation config
   _item:
-    test-id: ${@id}
-    test-create-date: ${@create-date}
-    text: ${@text}
-    doc-type: ${@resource-name}
-    create-user: ${@create-user}
+    * : *
     _links:
       self:
         name: ${CONSTANT.appName}

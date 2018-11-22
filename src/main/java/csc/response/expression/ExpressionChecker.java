@@ -14,14 +14,8 @@ public class ExpressionChecker {
         return GetterExpression.match(expression.trim());
     }
 
-    public static boolean validate(String expression){
-        if (isPlaceholderExpression(expression))
-            return false;
-        if (!isCallbackExpression(expression))
-            return false;
-        if(!isGetterExpression(expression))
-            return false;
-        return true;
+    public static boolean isMappingExpression(String key, String value){
+        return MappingExpression.match(key, value);
     }
 
 

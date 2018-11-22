@@ -8,12 +8,14 @@ import org.springframework.stereotype.Component;
 
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 
 @Component
 public class MainLoader {
     private JSONObject endpoint_jo;
     private HashMap<String, CSVRecord> attr_ref_map;
     private JSONObject callback_jo;
+    private List<CSVRecord> mapping;
 
     @Autowired
     public MainLoader(Environment env) throws Exception {
@@ -27,6 +29,7 @@ public class MainLoader {
         out.close();
 
         attr_ref_map = CSVReader.parseCSV("attribute-ref.csv", "_ref");
+        mapping = CSVReader.parseCSV("mapping.csv");
     }
 
     public JSONObject getEndpointJSONObject(){
@@ -41,5 +44,8 @@ public class MainLoader {
         return attr_ref_map;
     }
 
+    public List<CSVRecord> getMapping(){
+        return mapping;
+    }
 }
 

@@ -1,0 +1,6 @@
+display_name, field, type, format
+test-id, _id, String, NA
+test-create-date,createdDateTime,Date,dd/MM/yyyy
+text,text,String,NA
+doc-type,resourceName,String,NA
+create-user,userProfile,String,NA
